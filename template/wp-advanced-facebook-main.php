@@ -38,5 +38,7 @@
   <!-- Start Modal-->
     <?php AdvancedFacebook::wp_admin_template('wp-advanced-facebook-modal') ?>
   <!-- End Modal-->
-
+  <!-- Start Modal-->
+    <?php AdvancedFacebook::wp_admin_template('wp-advanced-facebook-welcome') ?>
+  <!-- End Modal-->
 </div>

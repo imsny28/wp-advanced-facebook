@@ -29,7 +29,7 @@ class FacebookFunction
     if(get_option('advanced_facebook_plugin'))
     {
       echo get_option('advanced_facebook_plugin');
-      echo "<script>alert('asd');</script>";
+      echo '<script>jQuery(document).ready(function(){jQuery("#welcome").modal("show")});</script>';
       require_once ( PLUGIN_PATH . 'template/wp-advanced-facebook-main.php' );
     }
     exit;

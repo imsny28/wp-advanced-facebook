@@ -25,6 +25,9 @@ jQuery(document).ready(function(){
 			}
 		});
 	});
+
+
+
 	jQuery(document).on("click",".toggle",function(){
 		var jQuery_this = jQuery(this);
 		if ( !jQuery_this.hasClass( 'off' ) ) {
@@ -34,5 +37,9 @@ jQuery(document).ready(function(){
 		else{
 			jQuery_this.parent( '.panel-heading' ).next().toggle();
 		}
+
+
 	});
+
+
 });
