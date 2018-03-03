@@ -6,43 +6,20 @@ class FacebookLogin
   public function advanced_facebook_login_action()
   {
     //global $wp, $wpdb, $new_fb_settings;
-      $_wp = FacebbokBuiltIn::wp();
-      $_wpdb = FacebbokBuiltIn::wp_db();
-      $_advanced_facebbook_settings = FacebbokBuiltIn::advanced_facebbook_settings();
-    if (isset($_GET['action']) && $_GET['action'] == 'unlink') {
-        $user_info = wp_get_current_user();
-        if ($user_info->ID) {
-            $_wpdb->query($_wpdb->prepare('DELETE FROM ' . $_wpdb->prefix . 'social_users
-          WHERE ID = %d
-          AND type = \'fb\'', $user_info->ID));
-            set_site_transient($user_info->ID . '_new_fb_admin_notice', __('Your Facebook profile is successfully unlinked from your account.', 'wp-advanced-facebook'), 3600);
-        }
-        //new_fb_redirect();
-        FacebookFunction::advanced_facebook__redirect();
-    }
-
-    if (is_user_logged_in() && FacebookFunction::advanced_facebook_is_user_connected()) {
-        //new_fb_redirect();
-        FacebookFunction::advanced_facebook__redirect();
-        exit;
-    }
-
+    $_wp = FacebbokBuiltIn::wp();
+    $_wpdb = FacebbokBuiltIn::wp_db();
+    $_advanced_facebbook_settings = FacebbokBuiltIn::advanced_facebbook_settings();
+    $this->delete_table();
+    $this->is_user_login();
+    # checking facebook class existning
     if (!class_exists('Facebook')) {
-        //require(dirname(__FILE__) . '/Facebook/autoload.php');
         require(PLUGIN_PATH . '/Facebook/autoload.php');
     }
-
-    //$settings = maybe_unserialize(get_option('nextend_fb_connect'));
     $settings  = maybe_unserialize(get_option('Facebook_app'));
     if (defined('NEXTEND_FB_APP_ID')) $settings['facebook_app_id'] = NEXTEND_FB_APP_ID;
     if (defined('NEXTEND_FB_APP_SECRET')) $settings['facebook_app_scret'] = NEXTEND_FB_APP_SECRET;
 
-    $fb = new Facebook\Facebook(array(
-        'app_id'                  => $settings['facebook_app_id'],
-        'app_secret'              => $settings['facebook_app_scret'],
-        'persistent_data_handler' => new Facebook\PersistentData\FacebookWordPressPersistentDataHandler(FacebookFunction::advanced_facebook_uniqid())
-    ));
-
+    $fb = $this->facebook_app( $settings['facebook_app_id'], $settings['facebook_app_scret'], FacebookFunction::advanced_facebook_uniqid() );
     if (isset($_REQUEST['code'])) {
         $helper = $fb->getRedirectLoginHelper();
         try {
@@ -211,6 +188,37 @@ class FacebookLogin
         header('Location: ' . $loginUrl);
         exit;
     }
+  }
+  // delete the file
+  private function delete_table()
+  {
+    if (isset($_GET['action']) && $_GET['action'] == 'unlink') {
+        $user_info = wp_get_current_user();
+        if ($user_info->ID) {
+            $_wpdb->query($_wpdb->prepare('DELETE FROM ' . $_wpdb->prefix . 'social_users
+          WHERE ID = %d
+          AND type = \'fb\'', $user_info->ID));
+            set_site_transient($user_info->ID . '_new_fb_admin_notice', __('Your Facebook profile is successfully unlinked from your account.', 'wp-advanced-facebook'), 3600);
+        }
+        FacebookFunction::advanced_facebook__redirect();
+    }
+  }
+  //checking user logined
+  private function is_user_login()
+  {
+    if (is_user_logged_in() && FacebookFunction::advanced_facebook_is_user_connected()) {
+        FacebookFunction::advanced_facebook__redirect();
+        exit;
+    }
+  }
+  private function facebook_app( $app_id, $app_scret, $uniqid )
+  {
+    $fb = new Facebook\Facebook(array(
+        'app_id'                  => $app_id,
+        'app_secret'              => $app_scret,
+        'persistent_data_handler' => new Facebook\PersistentData\FacebookWordPressPersistentDataHandler($uniqid)
+    ));
+    return $fb;
   }
 
 }

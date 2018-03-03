@@ -9,7 +9,7 @@
 <p>
   <code><?php _e( '[facebok_login text="Facebook login"]', 'demo-fb' ); ?></code>
   <br/>
-  <?php echo htmlspecialchars('<a href="#" class="login-facebook ">Facebook login</a>'); ?>
+  <?php echo htmlspecialchars('<a href="#" class="login-facebook">Facebook login</a>'); ?>
 </p>
 <hr>
 <p>

@@ -26,9 +26,9 @@ class FacebookAddFilter
   {
     FacebookFacebook::advanced_facebook_bp_insert_avatar();
   }
-  public function advanced_facebook_plugin_action_links_func($links, $file)
+  public function advanced_facebook_plugin_action_links_func()
   {
-    FacebookFunction::advanced_facebook_plugin_action_links($links, $file);
+    FacebookFunction::advanced_facebook_plugin_action_links();
   }
 }
 ?>

@@ -13,7 +13,7 @@ jQuery(document).ready(function(){
 			url: ajaxurl,
 			type: 'POST',
 			dataType: 'json',
-			security: security_check
+			security: security_check,
 			data: dataform,
 			success:function( response ){
 				jQuery(".message-shown").html(response.success);

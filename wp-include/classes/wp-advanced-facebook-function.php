@@ -222,8 +222,7 @@ class FacebookFunction
     {
       if ($file != FACEBOOK_BASE_FILE) return $links;
        $settings_link = '<a href="' . esc_url(menu_page_url('advanced_facebook_settings_slug', false)) . '">' . esc_html(__('Settings', 'wp-advanced-facebook')) . '</a>';
-       echo $settings_link;
-       exit;
+    
        array_unshift($links, $settings_link);
        return $links;
     }
