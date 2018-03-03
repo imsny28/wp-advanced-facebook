@@ -22,5 +22,5 @@
   define('PLUGIN_URL',plugins_url()."/wp-advanced-facebook");
 
   require_once ( PLUGIN_PATH . 'wp-include/classes/wp-advanced-facebook-initialization.php' );
-
+  require_once ( PLUGIN_PATH . '/wp-advanced-facebook-function-common.php' );
   AdvancedFacebook::init();

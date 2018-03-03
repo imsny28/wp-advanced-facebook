@@ -107,7 +107,7 @@ class FacebookLogin
                         ));
 
                         //update_user_meta( $ID, 'new_fb_default_password', $user_info->user_pass);
-                        do_action('nextend_fb_user_registered', $ID, $user_profile, $fb);
+                        do_action('user_registered', $ID, $user_profile, $fb);
                     } else {
                         return;
                     }
@@ -139,7 +139,7 @@ class FacebookLogin
                 update_user_meta($ID, 'fb_profile_picture', 'https://graph.facebook.com/' . $user_profile['id'] . '/picture?type=large');
                 do_action('wp_login', $user_info->user_login, $user_info);
                 update_user_meta($ID, 'fb_user_access_token', $accessToken);
-                do_action('nextend_fb_user_logged_in', $ID, $user_profile, $fb);
+                do_action('user_logged_in', $ID, $user_profile, $fb);
             }
         } else {
             $current_user = wp_get_current_user();
@@ -159,7 +159,7 @@ class FacebookLogin
                     '%s'
                 ));
                 update_user_meta($current_user->ID, 'fb_user_access_token', (string) $accessToken);
-                do_action('nextend_fb_user_account_linked', $ID, $user_profile, $fb);
+                do_action('user_account_linked', $ID, $user_profile, $fb);
                 $user_info = wp_get_current_user();
                 set_site_transient($user_info->ID . '_new_fb_admin_notice', __('Your Facebook profile is successfully linked with your account. Now you can sign in with Facebook easily.', 'nextend-facebook-connect'), 3600);
             } else {

@@ -9,9 +9,7 @@ class FacebookShortcode
   function __construct()
   {
     add_shortcode('facebok_login', array($this,'facebok_login_func'));
-
   }
-
   public function facebok_login_func( $atts ,$content = null ) {
       $button_atts = shortcode_atts( array(
           'text' => 'Login with facebook',
@@ -22,8 +20,6 @@ class FacebookShortcode
       ), $atts );
       return $this->facebook_button_display( $button_atts ) ;
   }
-
-
   public function facebook_button_display( $button_atts )
   {
 

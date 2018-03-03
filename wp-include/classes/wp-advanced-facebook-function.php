@@ -123,7 +123,7 @@ class FacebookFunction
   Connect Field in the Profile page
   */
 
-  function advanced_facebook_add_connect_field() {
+  public static function advanced_facebook_add_connect_field() {
       $_is_social_header = FacebbokBuiltIn::advanced_facebook_is_social_header();
       //if(new_fb_is_user_connected()) return;
       if ($_is_social_header === NULL) {
@@ -222,7 +222,7 @@ class FacebookFunction
     {
       if ($file != FACEBOOK_BASE_FILE) return $links;
        $settings_link = '<a href="' . esc_url(menu_page_url('advanced_facebook_settings_slug', false)) . '">' . esc_html(__('Settings', 'wp-advanced-facebook')) . '</a>';
-    
+
        array_unshift($links, $settings_link);
        return $links;
     }
