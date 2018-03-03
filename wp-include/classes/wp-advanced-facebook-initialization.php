@@ -21,9 +21,8 @@ class AdvancedFacebook
     $action->add_action('login_form');
     $action->add_action('register_form');
     $action->add_action('bp_sidebar_login_form');
-    //$filter->add_filter('get_avatar');
+    
     $filter->add_filter('bp_core_fetch_avatar');
-    //$filter->add_filter('plugin_action_links');
 
     $action->add_action('login_form_login');
     $action->add_action('login_form_register');

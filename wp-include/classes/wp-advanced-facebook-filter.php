@@ -17,14 +17,8 @@ class FacebookFilter
     case "init":
         return "advanced_facebook_query_var_func";
         break;
-    case "get_avatar":
-        return "advanced_facebook_insert_avatar_func";
-        break;
     case "bp_core_fetch_avatar":
         return "advanced_facebook_bp_insert_avatar_func";
-        break;
-    case "plugin_action_links":
-        return "advanced_facebook_plugin_action_links_func";
         break;
     default:
          return "wrong function";

@@ -183,33 +183,6 @@ class FacebookFunction
       <?php
   }
   // check again argument
-  public static function advanced_facebook_insert_avatar($avatar = '', $id_or_email=1, $size = 96, $default = '', $alt = false)
-  {
-    $current_user = get_current_user_id();
-    if( $current_user == 1 )
-    {
-      $id_or_email = $current_user;
-    }
-    else {
-      $id_or_email = $current_user;
-    }
-    $id = 0;
-     if (is_numeric($id_or_email)) {
-         $id = $id_or_email;
-     } else if (is_string($id_or_email)) {
-         $u  = get_user_by('email', $id_or_email);
-         $id = $u->id;
-     } else if (is_object($id_or_email)) {
-         $id = $id_or_email->user_id;
-     }
-     if ($id == 0) return $avatar;
-     $pic = get_user_meta($id, 'fb_profile_picture', true);
-     if (!$pic || $pic == '') return $avatar;
-     $avatar = preg_replace('/src=("|\').*?("|\')/i', 'src=\'' . $pic . '\'', $avatar);
-
-     return $avatar;
-  }
-  // check again argument
   public function advanced_facebook_bp_insert_avatar($avatar = '', $params, $id) {
         if (!is_numeric($id) || strpos($avatar, 'gravatar') === false) return $avatar;
         $pic = get_user_meta($id, 'fb_profile_picture', true);
@@ -217,14 +190,6 @@ class FacebookFunction
         $avatar = preg_replace('/src=("|\').*?("|\')/i', 'src=\'' . $pic . '\'', $avatar);
 
         return $avatar;
-    }
-    public static function advanced_facebook_plugin_action_links($links, $file)
-    {
-      if ($file != FACEBOOK_BASE_FILE) return $links;
-       $settings_link = '<a href="' . esc_url(menu_page_url('advanced_facebook_settings_slug', false)) . '">' . esc_html(__('Settings', 'wp-advanced-facebook')) . '</a>';
-
-       array_unshift($links, $settings_link);
-       return $links;
     }
   // More functions
   public static function advanced_facebook_login_url() {
