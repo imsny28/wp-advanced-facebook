@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        <p>Welcome to WP advacned Facebooks</p>
       </div>
 
     </div>
