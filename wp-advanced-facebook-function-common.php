@@ -3,8 +3,8 @@ add_filter('plugin_action_links', 'new_fb_plugin_action_links', 10, 2);
 
 function new_fb_plugin_action_links($links, $file) {
 
-    if ($file != FACEBOOK_BASE_FILE) return $links;
-    $settings_link = '<a href="' . esc_url(menu_page_url('nextend-facebook-connect', false)) . '">' . esc_html(__('Settings', 'nextend-facebook-connect')) . '</a>';
+    if ($file == FACEBOOK_BASE_FILE) return $links;
+    $settings_link = '<a href="' . esc_url(menu_page_url('advanced_facebook_settings_slug', false)) . '">' . esc_html(__('Settings', 'wp-advanced-facebook')) . '</a>';
     array_unshift($links, $settings_link);
 
     return $links;
