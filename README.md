@@ -5,12 +5,12 @@ By [Fateh Singh](https://www.facebook.com/sunny.13.3.93).
 
 ## About Plugin
 
-This Wordpress Plugin allow  you login and register with facebook .This plugin get all the images from facebook user who is logined with this plugin(wp advanced faceboook).
+This Wordpress Plugin allow  you login and register with facebook .This plugin get all the images from facebook user who is loginned with this plugin(wp advanced faceboook).
 
 
 ## Progressing
 
-One feature is in the progressing i.e get all images from the facebook users
+One feature is in the progressing i.e get all images from the facebook users. we will you update you as soon as possible
 
 ## Installation
 
@@ -22,4 +22,4 @@ The following Step to install the plugin :-
 3. Active the Plugin
 
 ```
-Now you are read to use this plugin
+Now you are read to use wp advanced facebook plugin
