@@ -21,16 +21,12 @@ class AdvancedFacebook
     $action->add_action('login_form');
     $action->add_action('register_form');
     $action->add_action('bp_sidebar_login_form');
-    
+
     $filter->add_filter('bp_core_fetch_avatar');
 
     $action->add_action('login_form_login');
     $action->add_action('login_form_register');
     $action->add_action('admin_notices');
-
-
-
-
     new FacebookShortcode();
   }
   private static function addfiles()
