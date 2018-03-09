@@ -2,8 +2,8 @@
    /*
    Plugin Name: WP Advanced Facebook
    Plugin URI: https://www.facebook.com/
-   description: This plugins helps you create Facebook login and register buttons. The login and register process only takes one click. if you want get all the images from facebook and want to post images on facebook this plugin will help you
-   Version: 1.0
+   description: This plugins helps you create Facebook login and register . The login and register process only takes one click. if you want get all the images from facebook and want to post images on facebook this plugin will help you
+   Version: 0.0.1
    Author: Mr. Fateh Singh
    Author URI: https://www.facebook.com/sunny.13.3.93
    */
