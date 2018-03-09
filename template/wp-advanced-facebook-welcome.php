@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Welcome to WP advacned Facebooks</p>
+        <img src ="<?php echo PLUGIN_URL ; ?>/assets/images/wp-advanced-facebook.png"/>
       </div>
 
     </div>
