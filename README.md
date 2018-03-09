@@ -16,8 +16,10 @@ One feature is in the progressing i.e get all images from the facebook users
 
 ```
 The following Step to install the plugin :-  
-- Dow
-- John Adams
-- Thomas Jefferson
+
+1. Download the plugin
+2. Upload the plugin in the wordpress site
+3. Active the Plugin
 
 ```
+Now you are read to use this plugin
